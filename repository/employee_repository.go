@@ -15,7 +15,7 @@ func (r *EmployeeRepository) CreateEmployee(p *model.Employee) error {
 	return r.DB.Create(p).Error
 }
 
-func (r *EmployeeRepository) FindByBadge(badge string) (*model.Employee, error) {
+func (r *EmployeeRepository) FindBadge(badge string) (*model.Employee, error) {
 	var m model.Employee
 	if err := r.DB.Where("badge = ?", badge).First(&m).Error; err != nil {
 		return nil, err
